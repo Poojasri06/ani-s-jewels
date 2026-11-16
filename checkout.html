@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Ani’s Jewels</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body{background:linear-gradient(180deg,var(--cream),var(--blush))}
+.co{padding:50px 0 90px}
+.co h1{font-size:clamp(2rem,4vw,2.8rem);color:var(--wine);text-align:center;margin-bottom:6px}
+.steps{text-align:center;margin-bottom:34px}
+.cg{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:start}
+.box{background:var(--cream);border:1px solid rgba(201,162,74,.5);border-radius:20px;padding:30px;box-shadow:0 24px 50px -34px rgba(90,15,43,.5)}
+.box h2{font-size:1.6rem;color:var(--wine);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.box h2 span{width:30px;height:30px;border-radius:50%;background:var(--wine);color:var(--gold2);font-family:var(--display);font-size:.8rem;display:grid;place-items:center}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:14px}.f .w{grid-column:1/-1}
+label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold3);display:block;margin-bottom:4px}
+input,textarea,select{width:100%;padding:13px 14px;border:1px solid #e3cfa6;border-radius:12px;background:#fff;font:inherit;color:var(--ink);transition:.2s}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--wine);box-shadow:0 0 0 3px rgba(123,30,70,.12)}
+.pay{display:grid;gap:12px;margin-top:6px}
+.po{text-transform:none;letter-spacing:normal;font-size:1rem;color:var(--ink);margin:0;display:flex;gap:14px;align-items:flex-start;border:1px solid #e3cfa6;border-radius:14px;padding:16px;cursor:pointer;background:#fff;transition:.2s}
+.po:has(input:checked){border-color:var(--wine);background:#fff6f6;box-shadow:0 0 0 3px rgba(123,30,70,.1)}
+.po input{width:auto;margin-top:5px;accent-color:var(--wine)}
+.po b{display:block;color:var(--wine);font-family:var(--serif);font-size:1.2rem}.po small{color:var(--muted);font-size:.85rem;display:block}
+.upi{display:none;margin-top:10px;padding:12px;background:var(--ivory);border-radius:10px;font-size:.9rem}.po:has(input:checked) .upi{display:block}
+.sum .it{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed rgba(201,162,74,.5)}
+.sum img{width:60px;height:72px;object-fit:cover;border-radius:8px}
+.sum h4{font-family:var(--serif);font-size:1.05rem;color:var(--wine);line-height:1.2}.sum small{color:var(--muted)}
+.row2{display:flex;justify-content:space-between;padding:7px 0;font-size:.95rem}
+.tot{font-family:var(--serif);font-size:1.7rem;color:var(--wine);border-top:1px solid var(--gold);margin-top:8px;padding-top:12px}
+.sum .btn{width:100%;justify-content:center;margin-top:16px;font-size:.9rem}
+.safe{text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px}
+.note{background:#fff3cd;border:1px solid #ecd48a;color:#6b5314;border-radius:10px;padding:10px 12px;font-size:.82rem;margin-top:12px;display:none}
+.done{text-align:center;padding:70px 20px;display:none}
+.done .tick{width:90px;height:90px;border-radius:50%;margin:0 auto 20px;background:var(--goldg);display:grid;place-items:center;font-size:2.6rem;color:var(--wine2)}
+.done p{font-family:var(--serif);font-size:1.3rem;color:var(--muted);margin:10px 0 24px}
+.err{color:#b3261e;font-size:.8rem;margin-top:10px;min-height:1em}
+@media(max-width:900px){.cg{grid-template-columns:1fr}.f{grid-template-columns:1fr}.box{padding:22px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a href="index.html" class="brand"><img src="img/emblem.svg" alt=""><span><b>ANI’S JEWELS</b><small>Everyday Shine, Everyday Style</small></span></a>
+  <a href="index.html#shop" class="menu" style="display:block;font-size:.8rem;letter-spacing:.14em">← CONTINUE SHOPPING</a>
+</div></header>
+
+<main class="co"><div class="wrap">
+  <div id="flow">
+    <div class="steps"><h1>Secure Checkout</h1><div class="orn">❖</div></div>
+    <form class="cg" id="form" novalidate>
+      <div style="display:grid;gap:26px">
+        <div class="box">
+          <h2><span>1</span>Delivery Details</h2>
+          <div class="f">
+            <div><label for="name">Full name</label><input id="name" required autocomplete="name"></div>
+            <div><label for="phone">Mobile (WhatsApp)</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit number" required autocomplete="tel-national"></div>
+            <div class="w"><label for="email">Email (for receipt)</label><input id="email" type="email" autocomplete="email"></div>
+            <div class="w"><label for="addr">Address</label><textarea id="addr" rows="2" required autocomplete="street-address"></textarea></div>
+            <div><label for="city">City</label><input id="city" required autocomplete="address-level2"></div>
+            <div><label for="pin">Pincode</label><input id="pin" inputmode="numeric" maxlength="6" required autocomplete="postal-code"></div>
+            <div class="w"><label for="state">State</label><input id="state" value="Tamil Nadu" required autocomplete="address-level1"></div>
+          </div>
+        </div>
+        <div class="box">
+          <h2><span>2</span>Payment</h2>
+          <div class="pay">
+            <label class="po"><input type="radio" name="pay" value="razorpay" checked><div><b>UPI · Cards · Netbanking · Wallets</b><small>Pay securely with any UPI app (GPay, PhonePe, Paytm), card or netbanking.</small></div></label>
+            <label class="po"><input type="radio" name="pay" value="upi"><div><b>Pay directly via UPI</b><small>GPay, PhonePe, Paytm — pay to our UPI ID and share the screenshot.</small><div class="upi" id="upiBox"></div></div></label>
+            <label class="po"><input type="radio" name="pay" value="wa"><div><b>Order on WhatsApp / Instagram DM</b><small>Send your order to us and we’ll confirm payment details personally.</small></div></label>
+          </div>
+        </div>
+      </div>
+      <aside class="box sum">
+        <h2>Order Summary</h2>
+        <div id="items"></div>
+        <div class="row2"><span>Subtotal</span><span id="sSub"></span></div>
+        <div class="row2"><span>Shipping</span><span id="sShip"></span></div>
+        <div class="row2 tot"><span>Total</span><b id="sTot"></b></div>
+        <button class="btn btn-gold" type="submit" id="payBtn">Pay Now</button>
+        <div class="err" id="err" role="alert"></div>
+        <div class="note" id="demo">Payment gateway key isn’t set yet (see <code>js/config.js</code>) — this is a demo, no money is charged.</div>
+        <p class="safe">🔒 Payments are encrypted &amp; processed by Razorpay</p>
+      </aside>
+    </form>
+  </div>
+
+  <div class="done" id="done">
+    <div class="tick">✓</div><h1 style="color:var(--wine)">Thank you, <span id="dn"></span>!</h1>
+    <p id="dmsg"></p><a id="doneWa" class="btn btn-gold" target="_blank" rel="noopener">Send details on WhatsApp</a>
+    <a href="index.html" class="btn btn-wine">Back to Shop</a>
+  </div>
+</div></main>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
+<script>
+const $=s=>document.querySelector(s), inr=Cart.inr;
+function paint(){
+  const ls=Cart.lines();
+  if(!ls.length){$("#items").innerHTML='<p class="empty" style="padding:20px 0">Your jewel box is empty ✿<br><a href="index.html#shop">Shop now</a></p>';$("#payBtn").disabled=true;$("#payBtn").classList.add("disabled")}
+  $("#items").innerHTML=ls.map(({p,q})=>`<div class="it"><img src="${p.img}" alt=""><div><h4>${p.name}</h4><small>Qty ${q}</small></div><b>${inr(p.price*q)}</b></div>`).join("")||$("#items").innerHTML;
+  const s=Cart.subtotal(),sh=Cart.shipping();
+  $("#sSub").textContent=inr(s);$("#sShip").textContent=sh?inr(sh):"FREE";$("#sTot").textContent=inr(s+sh);
+}
+paint();
+$("#upiBox").innerHTML=`UPI ID: <b>${SITE.upiId}</b>`;
+$("#demo").style.display=SITE.razorpayKeyId?"none":"block";
+const modeBtn=()=>{const v=document.querySelector("[name=pay]:checked").value;$("#payBtn").textContent={razorpay:"Pay Now",upi:"Place Order & Pay via UPI",wa:"Send Order on WhatsApp"}[v]};
+document.querySelectorAll("[name=pay]").forEach(r=>r.onchange=modeBtn);
+
+function orderText(c){
+  const l=Cart.lines().map(({p,q})=>`• ${p.name} × ${q} — ${inr(p.price*q)}`).join("\n");
+  return `Hi Ani's Jewels! 💖\n\nOrder details:\n${l}\n\nTotal: ${inr(Cart.subtotal()+Cart.shipping())}\n\nBilling / delivery address:\nName: ${c.name}\nPhone: ${c.phone}\n${c.addr}, ${c.city} - ${c.pin}, ${c.state}`;
+}
+function whatsappUrl(message){
+  return "https://wa.me/"+SITE.whatsapp+"?text="+encodeURIComponent(message);
+}
+function notifyOwner(c,r,total){
+  const message=`✅ PAYMENT RECEIVED — Ani's Jewels\n\nAmount: ${inr(total)}\nRazorpay payment ID: ${r.razorpay_payment_id}\n\n${orderText(c)}\n\nI will send the payment receipt here as an attachment.`;
+  const url=whatsappUrl(message);
+  $("#doneWa").href=url;
+  return url;
+}
+function finish(c,msg){
+  $("#flow").style.display="none";$("#done").style.display="block";$("#dn").textContent=c.name.split(" ")[0];$("#dmsg").textContent=msg;
+  Cart.clear();window.scrollTo(0,0);
+}
+$("#form").addEventListener("submit",e=>{
+  e.preventDefault();$("#err").textContent="";
+  const c={name:$("#name").value.trim(),phone:$("#phone").value.trim(),email:$("#email").value.trim(),addr:$("#addr").value.trim(),city:$("#city").value.trim(),pin:$("#pin").value.trim(),state:$("#state").value.trim()};
+  if(!Cart.lines().length) return $("#err").textContent="Your cart is empty.";
+  if(!c.name||!c.addr||!c.city||!c.state) return $("#err").textContent="Please fill in all delivery details.";
+  if(!/^[6-9]\d{9}$/.test(c.phone)) return $("#err").textContent="Enter a valid 10-digit mobile number.";
+  if(!/^\d{6}$/.test(c.pin)) return $("#err").textContent="Enter a valid 6-digit pincode.";
+  const mode=document.querySelector("[name=pay]:checked").value, total=Cart.subtotal()+Cart.shipping();
+  if(mode==="wa"){
+    window.open("https://wa.me/"+SITE.whatsapp+"?text="+encodeURIComponent(orderText(c)),"_blank");
+    return finish(c,"Your order has been sent on WhatsApp. We’ll confirm shortly!");
+  }
+  if(mode==="upi"){
+    const url=`upi://pay?pa=${encodeURIComponent(SITE.upiId)}&pn=${encodeURIComponent(SITE.brand)}&am=${total}&cu=INR&tn=${encodeURIComponent("Order "+c.name)}`;
+    window.open(url,"_blank");
+    window.open("https://wa.me/"+SITE.whatsapp+"?text="+encodeURIComponent(orderText(c)+"\n\n(UPI payment initiated — confirmation screenshot will follow)"),"_blank");
+    return finish(c,"Complete the UPI payment in your app, then send the confirmation screenshot on WhatsApp.");
+  }
+  // Razorpay
+  if(!SITE.razorpayKeyId){return finish(c,"Demo mode: payment gateway not connected yet, so no payment was taken.")}
+  if(!window.Razorpay) return $("#err").textContent="Payment window couldn’t load. Check your connection and retry.";
+  new Razorpay({
+    key:SITE.razorpayKeyId, amount:total*100, currency:"INR", name:SITE.brand, description:"Jewellery order",
+    prefill:{name:c.name,email:c.email,contact:c.phone}, theme:{color:"#5a0f2b"},
+    notes:{address:`${c.addr}, ${c.city} - ${c.pin}`},
+    handler:r=>{
+      const ownerWhatsApp=notifyOwner(c,r,total);
+      finish(c,"Payment received (ref "+r.razorpay_payment_id+"). We’ve notified Ani’s Jewels on WhatsApp.");
+      window.location.href=ownerWhatsApp;
+    },
+    modal:{ondismiss:()=>{$("#payBtn").disabled=false;$("#payBtn").textContent="Pay Now";}},
+  }).open();
+});
+</script>
+</body>
+</html>
